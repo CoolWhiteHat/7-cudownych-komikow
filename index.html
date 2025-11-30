@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Grzegorz Bulsiewicz">
+  <meta name="keywords" content="7 cudów, komicy, lista, galeria, responsywna strona">
+  <title>7 cudów komizmu</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- Logo -->
+    <div class="logo" id="logo" tabindex="0"><span class="logo-text">7 Cudów Komedii</span></div>
+
+    <!-- MENU DESKTOP (widoczne na >=1200px) i tablet (specjalny wygląd) -->
+    <nav class="nav nav-desktop" aria-label="Główne menu">
+      <a href="#home">Start</a>
+      <a href="#gallery">Galeria</a>
+      <a href="#list">Lista</a>
+      <a href="#form">Ankieta</a>
+      <a href="#media">Media</a>
+    </nav>
+
+    <!-- CZĘŚĆ MOBILNA: checkbox + label jako mobile (CSS-only toggle) -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
+    <label for="menu-toggle" class="mobile" tabindex="0">☰</label>
+
+    <!-- NAV MOBILE: pokazuje się gdy #menu-toggle:checked -->
+    <nav class="nav nav-mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#home">Start</a>
+      <a href="#gallery">Galeria</a>
+      <a href="#list">Lista</a>
+      <a href="#form">Ankieta</a>
+      <a href="#media">Media</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <!-- Sidebar z linkami -->
+    <aside class="sidebar" id="sidebar">
+      <h2>Szybka nawigacja</h2>
+      <ul>
+        <li><a href="#komik1">Louis de Funès</a></li>
+        <li><a href="#komik2">Charlie Chaplin</a></li>
+        <li><a href="#komik3">Buster Keaton</a></li>
+        <li><a href="#komik4">Mel Brooks</a></li>
+        <li><a href="#komik5">Robin Williams</a></li>
+        <li><a href="#komik6">Eddie Murphy</a></li>
+        <li><a href="#komik7">Joan Rivers</a></li>
+      </ul>
+      <p>Dowiedź się więcej o: <a href="https://www.imdb.com/name/nm0000086/bio/?ref_=nm_ov_bio_sm" target="_blank" rel="noopener">Louis de Funès</a></p>
+      <p>Muzeum <a href="https://museedefunes.fr/?lang=en" target="_blank" rel="noopener">Louis de Funès</a></p>
+    </aside>
+
+    <section class="hero">
+      <!-- Tytół wraz z opisem strony -->
+      <h1>Przedstawiam 7 najwybitniejszych komików na świecie</h1>
+
+      <p>Strona prezentująca 7 czołowych komików - w tym Louisa de Funèsa.</p>
+
+      <p>
+        Ta strona prezentuje siedmiu najbardziej znakomitych komików w historii kina, 
+        w tym niezapomnianego Louisa de Funèsa. Znajdziesz tu interaktywne mapy, filmy, 
+        muzykę oraz aktualności. Całość wzbogacono o responsywny układ, płynne animacje 
+        CSS i automatyczną galerię multimediów, które zapewniają atrakcyjne i nowoczesne 
+        wrażenia podczas przeglądania.
+      </p>
+    </section>
+
+    <!--Do poprawy-->
+    <section id="gallery" class="gallery-section">
+      <h2>Galeria zdjęć komików</h2>
+    
+      <div class="slideshow" id="slideshow">
+      
+        <!-- ukryte radio-control (jedno na każdy slajd) - zachowaj identyfikatory -->
+        <input type="radio" name="gallery" id="s1" checked>
+        <input type="radio" name="gallery" id="s2">
+        <input type="radio" name="gallery" id="s3">
+        <input type="radio" name="gallery" id="s4">
+        <input type="radio" name="gallery" id="s5">
+        <input type="radio" name="gallery" id="s6">
+        <input type="radio" name="gallery" id="s7">
+      
+        <!-- viewport jednego slajdu -->
+        <div class="viewport" aria-live="polite" id="viewport">
+          <div class="slides">
+            <!-- Każdy obraz w .slide, dzięki temu możemy centrować i skalować różne proporcje -->
+            <div class="slide"><img src="assets/images/img1.jpg" alt="Komik 1"></div>
+            <div class="slide"><img src="assets/images/img2.jpg" alt="Komik 2"></div>
+            <div class="slide"><img src="assets/images/img3.jpg" alt="Komik 3"></div>
+            <div class="slide"><img src="assets/images/img4.jpg" alt="Komik 4"></div>
+            <div class="slide"><img src="assets/images/img5.jpg" alt="Komik 5"></div>
+            <div class="slide"><img src="assets/images/img6.jpg" alt="Komik 6"></div>
+            <div class="slide"><img src="assets/images/img7.jpg" alt="Komik 7"></div>
+          </div>
+        </div>
+      
+        <!-- Kontrolki strzałek (po bokach) -->
+        <div class="controls" aria-hidden="true">
+          <label class="prev prev1"  for="s7">&lt;</label>
+          <label class="next next1"  for="s2">&gt;</label>
+        
+          <label class="prev prev2"  for="s1">&lt;</label>
+          <label class="next next2"  for="s3">&gt;</label>
+        
+          <label class="prev prev3"  for="s2">&lt;</label>
+          <label class="next next3"  for="s4">&gt;</label>
+        
+          <label class="prev prev4"  for="s3">&lt;</label>
+          <label class="next next4"  for="s5">&gt;</label>
+        
+          <label class="prev prev5"  for="s4">&lt;</label>
+          <label class="next next5"  for="s6">&gt;</label>
+        
+          <label class="prev prev6"  for="s5">&lt;</label>
+          <label class="next next6"  for="s7">&gt;</label>
+        
+          <label class="prev prev7"  for="s6">&lt;</label>
+          <label class="next next7"  for="s1">&gt;</label>
+        </div>
+      
+        <!-- numerki pod zdjęciem -->
+        <div class="dots" aria-hidden="true">
+          <label for="s1">1</label>
+          <label for="s2">2</label>
+          <label for="s3">3</label>
+          <label for="s4">4</label>
+          <label for="s5">5</label>
+          <label for="s6">6</label>
+          <label for="s7">7</label>
+        </div>
+      
+      </div>
+    </section>
+
+    <!-- Opisy komików -->
+    <section id="list" class="content-list">
+      <h2>Opisy komików</h2>
+      <article id="komik1">
+        <h3>1. Louis de Funès</h3>
+        <p>Francuski aktor komediowy, mistrz ekspresyjnej mimiki i energicznych reakcji. Znany z ról w „Żandarmie z Saint-Tropez” i „Wielkiej włóczędze”.</p>
+      </article>
+
+      <article id="komik2">
+        <h3>2. Charlie Chaplin</h3>
+        <p>Ikona kina niemego, twórca postaci Włóczęgi. Łączył humor, wzruszenie i społeczną refleksję w filmach takich jak „Brzdąc” czy „Dzisiejsze czasy”.</p>
+      </article>
+
+      <article id="komik3">
+        <h3>3. Buster Keaton</h3>
+        <p>Amerykański komik i reżyser o „kamiennej twarzy”. Słynął z widowiskowych gagów i perfekcyjnej choreografii w filmach niemych, m.in. „Generał”.</p>
+      </article>
+
+      <article id="komik4">
+        <h3>4. Mel Brooks</h3>
+        <p>Reżyser, scenarzysta i aktor znany z parodii i humoru absurdalnego. Twórca „Młodego Frankensteina”, „Płonących siedlisk” i wielu kultowych komedii.</p>
+      </article>
+
+      <article id="komik5">
+        <h3>5. Robin Williams</h3>
+        <p>Charyzmatyczny aktor i komik, łączący błyskawiczną improwizację z wielką wrażliwością. Zapamiętany z ról w „Stowarzyszeniu Umarłych Poetów”, „Pani Doubtfire” i „Buntowniku z wyboru”.</p>
+      </article>
+
+      <article id="komik6">
+        <h3>6. Eddie Murphy</h3>
+        <p>Komik i aktor, który zdobył popularność dzięki programowi „Saturday Night Live”. Gwiazda filmów takich jak „Gliniarz z Beverly Hills” i „Książę w Nowym Jorku”.</p>
+      </article>
+
+      <article id="komik7">
+        <h3>7. Joan Rivers</h3>
+        <p>Amerykańska komiczka i prezenterka znana z ostrego języka, ciętych ripost i bezkompromisowego stylu. Prekursorka stand-upu i gwiazda programu „Fashion Police”.</p>
+      </article>
+
+      <!-- Tabela z informacjami o urodzeniu/smierci danego komika -->
+      <h3>Tabela z informacjami o urodzeniu i śmierci</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lp.</th>
+            <th>Imię i nazwisko</th>
+            <th>Rok urodzenia</th>
+            <th>Miasto urodzenia</th>
+            <th>Rok śmierci</th>
+            <th>Miasto śmierci</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Louis de Funès</td>
+            <td>1914</td>
+            <td>Courbevoie</td>
+            <td>1983</td>
+            <td>Nantes</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Charlie Chaplin</td>
+            <td>1889</td>
+            <td>Londyn</td>
+            <td>1977</td>
+            <td>Corsier-sur-Vevey (Szwajcaria)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Buster Keaton</td>
+            <td>1895</td>
+            <td>Piqua</td>
+            <td>1966</td>
+            <td>Woodland Hills (Los Angeles)</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Mel Brooks</td>
+            <td>1926</td>
+            <td>Brooklyn (Nowy Jork)</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Robin Williams</td>
+            <td>1951</td>
+            <td>Chicago</td>
+            <td>2014</td>
+            <td>Paradise Cay (Kalifornia)</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Eddie Murphy</td>
+            <td>1961</td>
+            <td>Brooklyn (Nowy Jork)</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Joan Rivers</td>
+            <td>1933</td>
+            <td>Brooklyn (Nowy Jork)</td>
+            <td>2014</td>
+            <td>Nowy Jork</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Listy numerowane i punktowane -->
+      <h3>Trochę o komiźmie</h3>
+      <ul>
+        <li>
+          <strong>Klasyczny slapstick</strong> -
+          Reprezentowany przez Charliego Chaplina i Bustera Keatona,
+          bazował na fizycznym humorze, perfekcyjnej choreografii
+          oraz umiejętności budowania gagów bez dialogów.
+        </li>
+    
+        <li>
+          <strong>Komedia sytuacyjna</strong> -
+          Styl charakterystyczny dla Louisa de Funès i Mela Brooksa.
+          De Funès operował wybuchową mimiką i nerwową ekspresją,
+          tworząc humor oparty na konflikcie i dynamice.
+          Brooks natomiast wykorzystywał absurd, parodię
+          i przerysowanie gatunków filmowych.
+        </li>
+    
+        <li>
+          <strong>Stand-up</strong> -
+          Domeną Joany Rivers, Eddiego Murphy’ego oraz Robina Williamsa.
+          Rivers słynęła z ostrego, konfrontacyjnego stylu.
+          Murphy łączył energię, imitacje i obserwacyjny humor,
+          natomiast Williams improwizował błyskawicznie, tworząc chaotyczny,
+          ciepły i inteligentny komizm.
+        </li>
+      </ul>
+      <ol>
+        <li>
+          <strong>Wpływ historyczny</strong> -
+          Chaplin i Keaton stworzyli fundamenty komizmu filmowego,
+          Brooks zdefiniował parodię filmową XX wieku,
+          a Williams i Murphy odświeżyli stand-up w latach 80.
+        </li>
+    
+        <li>
+          <strong>Techniki aktorskie</strong> -
+          De Funès wykorzystywał przesadną ekspresję mimiki i ruchu,
+          Keaton - minimalizm emocji i skomplikowane sekwencje akcji,
+          Chaplin - mieszankę melancholii i slapsticku,
+          Williams - improwizację i szybkość skojarzeń,
+          Rivers - satyrę społeczną opartą na autoironii.
+        </li>
+    
+        <li>
+          <strong>Popularność</strong> -
+          Filmy Chaplina, Keatona i de Funèsa pozostają klasykami
+          o globalnym zasięgu; Brooks zdobył status kultowego reżysera;
+          Williams i Murphy stali się ikonami komedii dzięki połączeniu
+          talentu aktorskiego i stand-upowego rodowodu.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Ankiety -->
+    <section id="form" class="survey">
+      <h2>Ankieta</h2>
+      <form action="mailto:grzegorz.bulsiewicz@tm1.edu.pl" method="POST">
+
+        <fieldset>
+          <legend>Który komik jest najlepszy?</legend>
+          <label>
+            <input type="radio" name="best" value="deFunes" required>
+            Louis de Funès
+          </label>
+          <label>
+            <input type="radio" name="best" value="chaplin">
+            Charlie Chaplin
+          </label>
+          <label>
+            <input type="radio" name="best" value="williams">
+            Robin Williams
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Jakie typy komików lubisz najbardziej? (możesz wybrać więcej niż 1)</legend>
+        
+          <label>
+            <input type="checkbox" name="types[]" value="improwizator">
+            Improwizatorzy (np. Robin Williams)
+          </label>
+      
+          <label>
+            <input type="checkbox" name="types[]" value="slapstick">
+            Mistrzowie slapsticku (np. Chaplin, Keaton)
+          </label>
+      
+          <label>
+            <input type="checkbox" name="types[]" value="parodia">
+            Twórcy parodii (np. Mel Brooks)
+          </label>
+      
+          <label>
+            <input type="checkbox" name="types[]" value="standup">
+            Stand-uperzy (np. Eddie Murphy, Joan Rivers)
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Ulubione formy komedii</legend>
+          <label for="genres">Wybierz jedną:</label><br>
+
+          <select name="genres" id="genres" multiple size="4">
+            <option value="slapstick">Slapstick</option>
+            <option value="situational">Komedia sytuacyjna</option>
+            <option value="standup">Stand-up</option>
+            <option value="dark">Czarny humor</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dane uczestnika</legend>
+          <label for="name">Twoje imię:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="age">Twój wiek:</label>
+          <input type="number" id="age" name="age" min="1" max="120" required>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit">Wyślij</button>
+          <button type="reset">Wyczyść</button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- Film i muzyka -->
+    <section id="media" class="media">
+      <h2>Film i muzyka z "Żandarm z Saint-Tropez"</h2>
+      <div class="video-wrapper">
+        <!--Przepraszam, że film nie jest jako załącznik do youtube ale wszystko co yt znalazłem nie można było dać w iframe przez błąd "Obejrzyj film na YouTube Błąd 153 Błąd konfiguracji odtwarzacza"-->
+        <p>Zabawny fragment jednego z odcinków</p>
+        <video controls width="560">
+            <source src="assets/media/zandarm.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje elementu video.
+        </video>
+      </div>
+      <div class="audio-wrapper">
+        <p>Czołówka serialu</p>
+        <audio controls>
+          <source src="assets/media/song.mp3" type="audio/mpeg">
+          Twój przeglądarka nie wspiera elementu audio.
+        </audio>
+      </div>
+    </section>
+
+    <!-- Mapa -->
+    <section id="map" class="map">
+      <h2>Miejsce urodzenia Louis de Funès</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21923.563925139533!2d2.2634392038064446!3d48.89507225622604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6650ab02fc7bd%3A0x40b82c3688b3e10!2s92400%20Courbevoie%2C%20Francja!5e1!3m2!1spl!2spl!4v1764413789622!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
+
+  <!-- Stropka -->
+  <footer class="site-footer">
+    <p>Grzegorz Bulsiewicz 2tb1</p>
+  </footer>
+</body>
+</html>
