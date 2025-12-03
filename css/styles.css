@@ -474,75 +474,73 @@ table th,table td{
 /* TABLET: 600px X 1199px */
 @media (min-width:600px) and (max-width:1199px){
     main {
-    grid-template-columns: 1fr; /* jedna kolumna */
-    gap: 18px;
-    padding: 18px;
-    display: flex;
-    flex-direction: column; /* wymuszamy układ pionowy */
-  }
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero { order: 1; width: 100%; }
+    .sidebar { order: 2; width: 100%; }
+    .gallery-section { order: 3; width: 100%; }
+    .content-list, .survey, .media, .map, .about { order: 10; width: 100%; }
+    .nav-desktop{
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .nav-desktop a{
+      padding: 12px 18px;
+      border-radius: 28px;
+      background: linear-gradient(90deg, #ffffff05, #ffffff03);
+      border: 1px solid #ffffff08;
+      box-shadow: 0 6px 18px #00000073;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .nav-desktop a:hover{ transform: translateY(-6px); box-shadow: 0 14px 30px #0000008c; }
+    .site-header{
+      padding: 20px 18px;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .mobile{ display:none; }
+    .nav-mobile{ display:none; }
+    .viewport { height: min(65vh, 620px); }
+    .dots label { padding:8px 10px; font-weight:600; }
 
-  /* ustawiamy kolejność elementów */
-  .hero {
-    order: 1;
-    width: 100%;
-  }
+    /* Tabela przewijalna poziomo na tabletach */
+    table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table th, table td {
+      min-width: 120px;
+      white-space: nowrap;
+    }
 
-  .sidebar {
-    order: 2;
-    width: 100%;
-  }
-
-  .gallery-section {
-    order: 3;
-    width: 100%;
-  }
-
-  /* reszta elementów idzie później */
-  .content-list,
-  .survey,
-  .media,
-  .map,
-  .about {
-    order: 10;
-    width: 100%;
-  }
-
-  /* MENU (tablet) */
-  .nav-desktop{
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    width: 100%;
-  }
-  .nav-desktop a{
-    padding: 12px 18px;
-    border-radius: 28px;
-    background: linear-gradient(90deg, #ffffff05, #ffffff03);
-    border: 1px solid #ffffff08;
-    box-shadow: 0 6px 18px #00000073;
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .nav-desktop a:hover{ transform: translateY(-6px); box-shadow: 0 14px 30px #0000008c; }
-
-  /* ustaw header wyżej */
-  .site-header{
-    padding: 20px 18px;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  /* mobile ukryty — tablet używa desktop nav */
-  .mobile{ display:none; }
-  .nav-mobile{ display:none; }
-
-  /* galeria: większy viewport na tabletach */
-  .viewport { height: min(65vh, 620px); }
-
-  /* bardziej kontrastowe numery */
-  .dots label { padding:8px 10px; font-weight:600; }
+    /* Film oraz mapa pełna szerokość na tabletach */
+    .video-wrapper iframe,
+    .map iframe {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      min-width: 0 !important;
+      height: auto;
+      box-sizing: border-box;
+    }
+    .video-wrapper,
+    .map {
+      margin-left: -18px;
+      margin-right: -18px;
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
 }
 
 /* DESKTOP: >=1200px (klasyczny układ) */
@@ -595,6 +593,36 @@ table th,table td{
   .nav-mobile{display:none;position:absolute;right:12px;top:60px;background:rgba(0,0,0,0.6);padding:12px;border-radius:8px}
   .sidebar{display:none} /* minimum 1 blok znika w jednym układzie */
   .slides img{max-width:100%;height:180px}
+
+  /* Poprawka - tabela przewijalna poziomo */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  table th, table td {
+    min-width: 120px; /* Zapobiega łamaniu treści */
+    white-space: nowrap;
+  }
+
+  /* Film oraz mapa - pełny ekran bez przewijania */
+  .video-wrapper iframe,
+  .map iframe {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    height: auto;
+    box-sizing: border-box;
+  }
+  .video-wrapper,
+  .map {
+    margin-left: -12px;
+    margin-right: -12px;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
 }
 /* KONIEC RESPONSIVE LAYOUTS */
 
