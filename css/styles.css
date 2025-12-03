@@ -282,7 +282,7 @@ main{
 #s7:checked ~ .viewport .slides .slide:nth-of-type(7) img {
   opacity: 1;
   visibility: visible;
-  pointer-events: all; /* zamiana z auto na all */
+  pointer-events: all;
   transform: scale(1);
 }
 
@@ -294,7 +294,7 @@ main{
 }
 
 .controls label{
-  pointer-events: all; /* zamiana z auto na all */
+  pointer-events: all;
   display: none;
   position: absolute;
   top: 50%;
@@ -456,7 +456,7 @@ table th,table td{
 
 .video-wrapper iframe{
   width: 100%;
-  max-width: 700px
+  max-width: 700px;
 }
 
 .audio-wrapper{
@@ -548,6 +548,7 @@ table th,table td{
     box-sizing: border-box;
   }
 
+  .video-wrapper video,
   .video-wrapper iframe,
   .map iframe {
     width: 100%;
@@ -555,29 +556,25 @@ table th,table td{
     height: auto;
     box-sizing: border-box;
     display: block;
+    border: none;
   }
-} /* Zamknięty blok media query - tu był błąd parsowania! */
+} /* Zamknięty blok media query */
 
 /* DESKTOP: >=1200px (klasyczny układ) */
 @media (min-width:1200px){
   main{
-    grid-template-columns: 300px 1fr; /* sidebar po lewej */
+    grid-template-columns: 300px 1fr;
     gap:22px;
     padding:22px;
   }
 
-  /* Sidebar po lewej, normalna kolejność */
   .sidebar{ order: 0; width: auto; }
-
-  /* Nagłówek jako jedna linia (logo + menu inline) */
   .site-header{
     padding: 12px 18px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
-
-  /* Desktop menu jako prosty pasek po prawej */
   .nav-desktop{
     display: flex;
     gap: 8px;
@@ -591,13 +588,53 @@ table th,table td{
     transition: background .15s ease, transform .12s ease;
   }
   .nav-desktop a:hover{ background: #ffffff08; transform: translateY(-2px); }
-
-  /* mobile i nav-mobile schowane */
   .mobile{ display:none; }
   .nav-mobile{ display:none; }
-
-  /* galeria: standardowa wysokość */
   .viewport { height: min(60vh, 520px); }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .video-wrapper video,
+  .video-wrapper iframe {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    border: none;
+  }
+  .map {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .map iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    display: block;
+    box-sizing: border-box;
+    border: none;
+  }
+  .audio-wrapper {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .audio-wrapper p {
+    text-align: center;
+    margin: 0 0 8px 0;
+  }
+  .audio-wrapper audio {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
 
 /* MOBILE <600px */
@@ -606,7 +643,7 @@ table th,table td{
   .nav-desktop{display:none}
   .mobile{display:inline-block}
   .nav-mobile{display:none;position:absolute;right:12px;top:60px;background:rgba(0,0,0,0.6);padding:12px;border-radius:8px}
-  .sidebar{display:none} /* minimum 1 blok znika w jednym układzie */
+  .sidebar{display:none}
   .slides img{max-width:100%;height:180px}
   .content-list {
     width: 100%;
@@ -629,9 +666,9 @@ table th,table td{
     padding: 6px;
   }
 
- .video-wrapper {
+  .video-wrapper {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
@@ -648,7 +685,6 @@ table th,table td{
     box-sizing: border-box;
     border: none;
   }
-
   video {
     width: 100% !important;
     max-width: 100% !important;
@@ -657,32 +693,29 @@ table th,table td{
     display: block;
     box-sizing: border-box;
   }
-
   .media {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  
   .map {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
   }
-
   .map iframe {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     box-sizing: border-box;
     display: block;
+    border: none;
   }
 }
 /* KONIEC RESPONSIVE LAYOUTS */
 
-/* dodatkowe drobne style formularzy i dostępności */
 form label{
   display: block;
   margin-top: 8px
@@ -696,5 +729,4 @@ button{
   cursor: pointer
 }
 
-/* drobne akcenty kolorystyczne */
 a{color:var(--accent)}
